@@ -7,6 +7,11 @@ export const meta: MetaFunction = () => {
 	];
 };
 
+export const loader = async () => {
+	await new Promise((resolve) => setTimeout(resolve, 5000));
+	return null;
+};
+
 export const headers: HeadersFunction = () => {
 	return {
 		"cache-control": "public, max-age=1, stale-while-revalidate=8640000",
