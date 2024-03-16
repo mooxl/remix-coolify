@@ -1,11 +1,15 @@
-FROM node:lts-alpine as build
+FROM node:lts-alpine
 WORKDIR /app
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 COPY package*.json ./
-RUN npm install
+RUN pnpm install
 COPY . .
-RUN npm run build
+RUN pnpm run build
 ENV NODE_ENV=production
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
+EXPOSE 3000
 
 
 
