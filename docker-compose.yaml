@@ -3,7 +3,9 @@ services:
     image: varnish:alpine
     restart: unless-stopped
     volumes:
-      - "./default.vcl:/etc/varnish/default.vcl"
+      - type: bind
+        source: ./default.vcl
+        target: /etc/varnish/default.vcl
     environment:
       - VARNISH_SIZE=512M
   website:
