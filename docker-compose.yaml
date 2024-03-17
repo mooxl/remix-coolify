@@ -1,17 +1,56 @@
+version: '3.8'
 services:
   varnish:
-    image: varnish:alpine
+    image: 'varnish:alpine'
     restart: unless-stopped
     volumes:
-      - type: bind
-        source: ./default.vcl
-        target: /etc/varnish/default.vcl
+      - './default.vcl:/etc/varnish/default.vcl'
     environment:
       - VARNISH_SIZE=512M
+    networks:
+      l04gs4s: null
+    labels:
+      - traefik.enable=true
+      - traefik.http.middlewares.gzip.compress=true
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      - traefik.http.routers.http-0-g88cgow.entryPoints=http
+      - 'traefik.http.routers.http-0-g88cgow.rule=Host(`varnish.mooxl.de`) && PathPrefix(`/`)'
+      - traefik.http.routers.https-0-g88cgow.entryPoints=https
+      - traefik.http.routers.https-0-g88cgow.middlewares=gzip
+      - 'traefik.http.routers.https-0-g88cgow.rule=Host(`varnish.mooxl.de`) && PathPrefix(`/`)'
+      - traefik.http.routers.https-0-g88cgow.tls.certresolver=letsencrypt
+      - traefik.http.routers.https-0-g88cgow.tls=true
+      - 'caddy_0.encode=zstd gzip'
+      - 'caddy_0.handle_path.0_reverse_proxy={{upstreams}}'
+      - 'caddy_0.handle_path=/*'
+      - caddy_0.header=-Server
+      - 'caddy_0.try_files={path} /index.html /index.php'
+      - 'caddy_0=https://varnish.mooxl.de'
+      - caddy_ingress_network=g88cgow
+      - coolify.managed=true
+      - coolify.version=4.0.0-beta.239
+      - coolify.applicationId=3
+      - coolify.type=application
+      - coolify.name=varnish-l04gs4s-184653463008
+      - coolify.pullRequestId=0
+    container_name: varnish-l04gs4s-184653463008
   website:
     build: .
     restart: unless-stopped
     depends_on:
       - varnish
-    
-    
+    networks:
+      l04gs4s: null
+    labels:
+      - coolify.managed=true
+      - coolify.version=4.0.0-beta.239
+      - coolify.applicationId=3
+      - coolify.type=application
+      - coolify.name=website-l04gs4s-184653463607
+      - coolify.pullRequestId=0
+    container_name: website-l04gs4s-184653463607
+volumes: {  }
+networks:
+  l04gs4s:
+    name: l04gs4s
+    external: true
