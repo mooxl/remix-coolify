@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
 
 export const loader = async () => {
 	const date = new Date().toISOString().split("T")[1].split(".")[0];
-	//await new Promise((resolve) => setTimeout(resolve, 10000));
+	await new Promise((resolve) => setTimeout(resolve, 10000));
 	return { date };
 };
 
