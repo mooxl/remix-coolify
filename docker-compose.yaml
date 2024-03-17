@@ -5,7 +5,7 @@ services:
     volumes:
       - "./default.vcl:/etc/varnish/default.vcl"
     tmpfs:
-      - ./:exec
+      - /app:exec
     environment:
       - VARNISH_SIZE=512M
   website:
