@@ -4,6 +4,8 @@ services:
     restart: unless-stopped
     volumes:
       - "./default.vcl:/etc/varnish/default.vcl"
+    tmpfs:
+      - /var/lib/varnish:exec
     environment:
       - VARNISH_SIZE=512M
   website:
