@@ -1,4 +1,5 @@
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -8,8 +9,9 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-	await new Promise((resolve) => setTimeout(resolve, 5000));
-	return null;
+	const date = new Date().toISOString().split("T")[1].split(".")[0];
+	await new Promise((resolve) => setTimeout(resolve, 10000));
+	return { date };
 };
 
 export const headers: HeadersFunction = () => {
@@ -19,9 +21,10 @@ export const headers: HeadersFunction = () => {
 };
 
 export default function Index() {
+	const data = useLoaderData<typeof loader>();
 	return (
 		<main>
-			<h1>This is world</h1>
+			<h1>Server creation - {data.date}</h1>
 		</main>
 	);
 }
