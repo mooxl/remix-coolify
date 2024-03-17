@@ -1,0 +1,10 @@
+services:
+  varnish:
+    image: varnish:lts
+    restart: unless-stopped
+  website:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - varnish
+    

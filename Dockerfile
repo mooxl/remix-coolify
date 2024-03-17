@@ -10,6 +10,3 @@ RUN pnpm run build
 ENV NODE_ENV=production
 CMD ["pnpm", "start"]
 EXPOSE 3000
-
-
-
