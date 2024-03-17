@@ -1,10 +1,11 @@
 services:
   varnish:
-    image: varnish:lts
+    image: varnish:alpine
     restart: unless-stopped
   website:
     build: .
     restart: unless-stopped
     depends_on:
       - varnish
+    
     
