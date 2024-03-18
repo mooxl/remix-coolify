@@ -11,9 +11,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@directus/sdk": "^15.0.3",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
+    "@unpic/pixels": "^1.2.2",
+    "@unpic/placeholder": "^0.1.2",
     "@unpic/react": "^0.1.11",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
