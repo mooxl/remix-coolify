@@ -1,5 +1,5 @@
 services:
-  varnish:
+  cache:
     image: varnish:alpine
     restart: unless-stopped
     volumes:
@@ -8,7 +8,7 @@ services:
       - /app:exec
     environment:
       - VARNISH_SIZE=512M
-  website:
+  site:
     build: .
     restart: unless-stopped
     depends_on:

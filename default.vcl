@@ -1,6 +1,6 @@
 vcl 4.1;
 
 backend default {
-    .host = "website";
+    .host = "site";
     .port = "3000";
 }

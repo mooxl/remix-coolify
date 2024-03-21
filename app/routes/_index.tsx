@@ -1,6 +1,6 @@
+import Image from "@/components/Image";
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import Image from "~/components/Image";
 
 export const meta: MetaFunction = () => {
 	return [
