@@ -19,7 +19,7 @@ export default function Index() {
 	const data = useLoaderData<typeof loader>();
 	return (
 		<main>
-			<h1>Server creation - {data.date}</h1>
+			<h1 className="">Server creation - {data.date}</h1>
 			<Image
 				src="https://cms.mooxl.de/assets/f0d200c6-0e9a-4807-a3e9-f01c1cbf333c"
 				alt="A cat with a hat"

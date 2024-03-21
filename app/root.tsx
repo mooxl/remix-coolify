@@ -7,6 +7,8 @@ import {
 	ScrollRestoration,
 } from "@remix-run/react";
 
+import "./global.css";
+
 export const headers: HeadersFunction = () => {
 	return {
 		"cache-control": "public, max-age=1, stale-while-revalidate=864000",
@@ -15,7 +17,7 @@ export const headers: HeadersFunction = () => {
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="de">
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
