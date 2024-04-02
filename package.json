@@ -1,43 +1,36 @@
 {
-  "name": "remix-coolify",
+  "name": "varmix",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
+    "postbuild": "purgecss --css build/client/assets/*.css --content  build/client/assets/*.js  build/server/index.js --output build/client/assets",
     "dev": "remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@directus/sdk": "^15.0.3",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
-    "@tailwindcss/vite": "4.0.0-alpha.9",
+    "@tailwindcss/vite": "4.0.0-alpha.11",
     "@unpic/pixels": "^1.2.2",
     "@unpic/placeholder": "^0.1.2",
     "@unpic/react": "^0.1.11",
-    "isbot": "^4.1.0",
+    "isbot": "^5.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "4.0.0-alpha.9"
+    "tailwindcss": "4.0.0-alpha.11"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.6.3",
     "@remix-run/dev": "^2.8.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.38.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "typescript": "^5.1.6",
-    "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.6",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "engines": {
     "node": ">=18.0.0"
