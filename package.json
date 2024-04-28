@@ -5,31 +5,31 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "postbuild": "purgecss --css build/client/assets/*.css --content  build/client/assets/*.js  build/server/index.js --output build/client/assets",
     "dev": "remix vite:dev",
+    "format": "pnpm biome check --diagnostic-level=warn --apply-unsafe .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/node": "^2.8.1",
-    "@remix-run/react": "^2.8.1",
-    "@remix-run/serve": "^2.8.1",
-    "@tailwindcss/vite": "4.0.0-alpha.11",
+    "@remix-run/node": "^2.9.1",
+    "@remix-run/react": "^2.9.1",
+    "@remix-run/serve": "^2.9.1",
+    "@tailwindcss/vite": "4.0.0-alpha.14",
     "@unpic/pixels": "^1.2.2",
     "@unpic/placeholder": "^0.1.2",
-    "@unpic/react": "^0.1.11",
-    "isbot": "^5.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "4.0.0-alpha.11"
+    "@unpic/react": "^0.1.14",
+    "isbot": "^5.1.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "4.0.0-alpha.14"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.3",
-    "@remix-run/dev": "^2.8.1",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.6",
+    "@biomejs/biome": "1.7.1",
+    "@remix-run/dev": "^2.9.1",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "engines": {

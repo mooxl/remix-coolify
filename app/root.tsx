@@ -10,6 +10,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Navigation from "./components/Navigation";
 import "./global.css";
 
 export const headers: HeadersFunction = () => {
@@ -29,7 +30,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const Root =()=> {
+const Root = () => {
   return (
     <html lang="de">
       <head>
@@ -39,6 +40,7 @@ const Root =()=> {
         <Links />
       </head>
       <body className="">
+        <Navigation />
         <main className="">
           <Outlet />
         </main>
@@ -47,6 +49,6 @@ const Root =()=> {
       </body>
     </html>
   );
-}
+};
 
 export default Root;
